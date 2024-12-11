@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Describe SMILES</title>
+    <!-- Corrected href to link CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='caption.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Describe Molecule structure</h1>
+        <!-- Form to submit SMILES string -->
+        <form method="POST" action="/features/describe">
+            <div class="form-group">
+                <label for="smiles">Molecule Formula:</label>
+                <input type="text" id="smiles" name="smiles" required>
+            </div>
+            <button type="submit" class="btn-submit">Describe</button>
+        </form>
+
+        {% if smiles %}
+        <!-- Display the result -->
+        <section class="result-section">
+            <h2>Desciption:</h2>
+            <p><strong>Molecule Formula:</strong> {{ smiles }}</p>
+            <p><strong>The description of your Molecule:</strong> {{ caption }}</p>
+        </section>
+        {% endif %}
+        <section class="navigation-buttons">
+            <a href="{{ url_for('mainpage.usermainpage') }}" class="back-button">Back to Main Page</a>
+        </section>
+    </div>
+</body>
+
+</html>

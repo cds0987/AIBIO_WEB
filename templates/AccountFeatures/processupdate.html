@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upgrade Account</title>
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='processupdate.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <h1>Payment proccessing</h1>
+            <p>Upload an image to prove your payment</p>
+        </header>
+
+        <!-- Form Section -->
+        <section class="form-section">
+            <h2>Upload Payment Image</h2>
+            <form action="/acfeatures/proccessplus" method="post" enctype="multipart/form-data">
+                <div class="input-group">
+                    <label for="paymentimage">Choose an image:</label>
+                    <input type="file" id="paymentimage" name="paymentimage" accept="image/*" required>
+                </div>
+                <button type="submit" class="btn-submit">Upload</button>
+            </form>
+        </section>
+        {% if message %}
+        <p>{{ message }}</p>
+        {% endif %}
+        <section class="button-container">
+            <a href="{{ url_for('mainpage.usermainpage') }}" class="back-button">Back to Main Page</a>
+        </section>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Upload and Data Analysis</title>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='analyze.css') }}">
+</head>
+<body>
+    <div class="container custom-container">
+        <h1 class="mt-5 custom-title">Upload a CSV File for Analysis</h1>
+        <form action="/uploadcsv" method="POST" enctype="multipart/form-data" class="custom-form">
+            <div class="form-group custom-form-group">
+                <label for="file" class="custom-label">Choose CSV file:</label>
+                <input type="file" name="file" class="form-control custom-input" id="file" required>
+            </div>
+            <button type="submit" class="btn btn-primary custom-button">Upload</button>
+        </form>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert alert-warning mt-3 custom-alert">
+                    {{ messages[0] }}
+                </div>
+            {% endif %}
+        {% endwith %}
+        <section class="back-to-main">
+            <a href="/main" class="back-button">Back to Main Page</a>
+        </section>
+        <section class="feedback-section">
+            <a href="/feedback" class="feedback-button">Give Feedback</a>
+        </section>
+    </div>
+</body>
+</html>

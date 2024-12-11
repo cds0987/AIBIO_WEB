@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upgrade Your Plan | AGENBIO</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='upgrade-account.css') }}">
+</head>
+
+<body>
+    <header>
+        <h1>Upgrade Your Account</h1>
+        <p>Welcome to AGENBIO</p>
+    </header>
+    <div class="container">
+        <div class="plans">
+            <!-- Free Plan -->
+            <div class="plan">
+                <h2>Free</h2>
+                <h3>$0 <span>/ month</span></h3>
+                <ul>
+                    <li>Basic access</li>
+                    <li>Standard mode</li>
+                    <li>Limited features</li>
+                </ul>
+                <button disabled>Your Current Plan</button>
+            </div>
+
+            <!-- Plus Plan -->
+            <div class="plan highlight">
+                <h2>Plus</h2>
+                <h3>$20 <span>/ month</span></h3>
+                <ul>
+                    <li>Everything in Free</li>
+                    <li>Extended access</li>
+                    <li>Standard and advanced modes</li>
+                    <li>Access to new features</li>
+                </ul>
+                <form action="/mainpage/processplusproof" method="POST">
+                    <button type="submit">Upgrade to Plus</button>
+                </form>
+            </div>
+
+            <!-- Pro Plan -->
+            <div class="plan">
+                <h2>Pro</h2>
+                <h3>$200 <span>/ month</span></h3>
+                <ul>
+                    <li>Everything in Plus</li>
+                    <li>Unlimited access</li>
+                    <li>Priority for complex tasks</li>
+                </ul>
+                <form action="/mainpage/processproproof" method="POST">
+                    <button type="submit">Upgrade to Pro</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Payment Information Section -->
+        <section class="payment-info">
+            <h3>Payment Instructions</h3>
+            <p>To complete your upgrade, please make the payment to the following bank account:</p>
+            <ul>
+                <li><strong>Bank Name:</strong> XYZ Bank</li>
+                <li><strong>Account Name:</strong> AGENBIO Solutions</li>
+                <li><strong>Account Number:</strong> 1234567890</li>
+                <li><strong>IFSC Code:</strong> XYZB0001234</li>
+                <li><strong>Amount:</strong> $20 for Plus Plan, $200 for Pro Plan</li>
+                <li><strong>Note:</strong> Please use the following format for your payment reference:
+                    <strong>Name_ID_LevelUpdate</strong>. For example, if your name is John Doe, ID is 12345, and you
+                    are upgrading to the Pro plan, your payment reference should be <strong>JohnDoe_12345_Pro</strong>.
+                </li>
+            </ul>
+            <p>Once the payment is made, please upload a screenshot or proof of payment by selecting "Upgrade to Plus"
+                or "Upgrade to Pro" above.</p>
+        </section>
+        <section class="button-container">
+            <a href="{{ url_for('mainpage.usermainpage') }}" class="back-button">Back to Main Page</a>
+        </section>
+    </div>
+    <footer>
+        <p>Need enterprise-level features? <a href="#">Contact us</a>.</p>
+    </footer>
+</body>
+
+</html>

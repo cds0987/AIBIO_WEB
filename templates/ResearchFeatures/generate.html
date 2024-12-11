@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate SMILES</title>
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='generate.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Generate SMILES</h1>
+        </header>
+        <main>
+            <!-- Form to input SMILES -->
+            <form method="POST" action="/features/generate" class="transparent-form">
+                <div class="form-group">
+                    <label for="generate">Enter description for your satisfied Molecule:</label>
+                    <input type="text" id="generate" name="generate" required>
+                </div>
+                <button type="submit" class="btn-submit">Generate</button>
+            </form>
+
+            <!-- Result Section -->
+            {% if smiles %}
+            <section class="result-section">
+                <h2>Generated Molecule:</h2>
+                <p><strong>Molecule:</strong> {{ smiles }}</p>
+                <h2>Molecule Visualization:</h2>
+                <div class="molecular-image">
+                    <img src="{{ img_path }}" alt="Visualization Structure">
+                </div>
+            </section>
+            {% endif %}
+
+            <section class="navigation-buttons">
+                <a href="{{ url_for('mainpage.usermainpage') }}" class="back-button">Back to Main Page</a>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>

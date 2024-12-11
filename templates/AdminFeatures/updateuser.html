@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Payment Records</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='updateuser.css') }}">
+</head>
+
+<body>
+    <!-- Notification -->
+    {% if message %}
+    <div class="notification" id="notification">
+        <p>{{ message }}</p>
+    </div>
+    {% endif %}
+
+    <div class="container">
+
+        <h1>User Payment Records</h1>
+
+        <!-- Search Bar -->
+        <input type="text" id="search" onkeyup="filterTable()" placeholder="Search users...">
+
+        <!-- User Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>User ID</th>
+                    <th>Email</th>
+                    <th>Plan</th>
+                    <th>Status</th>
+                    <th>Proof of Payment</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.user_id }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.plan }}</td>
+                    <td>{{ user.status }}</td>
+                    <td>
+                        {% if user.proof_image %}
+                        <a href="{{ url_for('static', filename=user.proof_image.split('static/')[1]) }}"
+                            target="_blank">
+                            <img src="{{ url_for('static', filename=user.proof_image.split('static/')[1]) }}"
+                                alt="Proof Image">
+                        </a>
+                        {% else %}
+                        No Image Uploaded
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button type="button" id="toggle-update-form">Update User Level</button>
+            <a href="/mainpage/admin">
+                <button type="button" id="adminback">Back to Main Page</button>
+            </a>
+        </div>
+
+        <!-- Hidden Update Form -->
+        <form id="update-form" class="hidden" action="/adfeatures/update_user" method="POST">
+            <h2>Update User Level</h2>
+            <label for="user-id">User ID:</label>
+            <input type="text" id="user-id" name="user_id" required>
+
+            <label for="new-level">New Level:</label>
+            <input type="text" id="new-level" name="new_level" required>
+
+            <button type="submit">Update</button>
+        </form>
+    </div>
+
+    <script>
+        // Function to filter the table based on the search input
+        function filterTable() {
+            const searchValue = document.getElementById("search").value.toLowerCase();
+            const rows = document.querySelectorAll("table tbody tr");
+
+            rows.forEach(row => {
+                const cells = row.getElementsByTagName("td");
+                let matchFound = false;
+
+                // Check each cell in the row for a match
+                for (let i = 0; i < cells.length; i++) {
+                    if (cells[i].textContent.toLowerCase().includes(searchValue)) {
+                        matchFound = true;
+                        break;
+                    }
+                }
+
+                // Display or hide the row based on the match
+                row.style.display = matchFound ? "" : "none";
+            });
+        }
+
+        // Toggle the visibility of the update form
+        document.getElementById('toggle-update-form').addEventListener('click', function () {
+            const updateForm = document.getElementById('update-form');
+            const button = this;
+
+            if (updateForm.classList.contains('hidden')) {
+                updateForm.classList.remove('hidden');
+                updateForm.classList.add('visible');
+                button.textContent = 'Hide Update Form';
+            } else {
+                updateForm.classList.remove('visible');
+                updateForm.classList.add('hidden');
+                button.textContent = 'Update User Level';
+            }
+        });
+
+        // Hide the notification after 3 seconds if it's visible
+        window.onload = function () {
+            const notification = document.getElementById('notification');
+            if (notification) {
+                setTimeout(function () {
+                    notification.style.display = 'none';
+                }, 3000);  // 3000 milliseconds = 3 seconds
+            }
+        };
+    </script>
+</body>
+
+</html>

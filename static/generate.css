@@ -1,0 +1,177 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background: url('/static/Images/generate.jpg') no-repeat center center/cover;
+    background-attachment: fixed;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container Styling */
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background: rgba(255, 255, 255, 0.1);
+    /* Transparent white */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Header */
+header h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2em;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+/* Form Styling */
+form.transparent-form {
+    margin: 20px 0;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+input[type="text"]:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Buttons */
+button.btn-submit,
+a.nav-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+    background: rgba(0, 100, 255, 0.7);
+    text-align: center;
+    transition: background 0.3s ease;
+}
+
+button.btn-submit:hover,
+a.nav-button:hover {
+    background: rgba(0, 100, 255, 1);
+}
+
+a.nav-button.feedback {
+    background: rgba(0, 200, 150, 0.7);
+}
+
+a.nav-button.feedback:hover {
+    background: rgba(0, 200, 150, 1);
+}
+
+/* Result Section */
+.result-section {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.result-section h2 {
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+.result-section p {
+    font-size: 1.2em;
+}
+
+.molecular-image img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    .result-section p {
+        font-size: 1em;
+    }
+}
+
+/* Styling for the navigation buttons section */
+.navigation-buttons {
+    text-align: center;
+    /* Center the button */
+    margin-top: 20px;
+    /* Add spacing above the section */
+}
+
+/* Styling for the back button */
+.navigation-buttons .back-button {
+    display: inline-block;
+    /* Makes the link look like a button */
+    padding: 12px 24px;
+    /* Add padding for a comfortable button size */
+    background-color: #007BFF;
+    /* Primary blue color */
+    color: #fff;
+    /* White text for contrast */
+    font-size: 16px;
+    /* Readable font size */
+    font-weight: bold;
+    /* Makes the text stand out */
+    text-decoration: none;
+    /* Removes underline */
+    border-radius: 8px;
+    /* Rounded corners */
+    transition: all 0.3s ease;
+    /* Smooth hover effect */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Add a subtle shadow */
+}
+
+/* Hover effect for the button */
+.navigation-buttons .back-button:hover {
+    background-color: #0056b3;
+    /* Darker blue for hover */
+    color: #e0e0e0;
+    /* Slightly lighter text on hover */
+    transform: translateY(-3px);
+    /* Moves the button up slightly */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    /* Enhances the shadow */
+}
+
+/* Active state for the button */
+.navigation-buttons .back-button:active {
+    transform: translateY(1px);
+    /* Moves the button down on click */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Restores the shadow */
+    background-color: #004085;
+    /* Even darker blue for active */
+}

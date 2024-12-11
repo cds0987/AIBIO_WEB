@@ -1,0 +1,217 @@
+/* Set the background image for the entire page */
+body {
+    background: url('/static/Images/search.jpg') no-repeat center center / cover;
+    background-size: cover;
+    /* Ensure the image covers the whole screen */
+    background-position: center;
+    /* Center the image */
+    background-attachment: fixed;
+    /* Fix the background image during scrolling */
+    font-family: Arial, sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Container to center the content */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Style the heading */
+h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Style the form with transparent background */
+form {
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Transparent black background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 500px;
+}
+
+form label {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    display: block;
+    color: #fff;
+}
+
+form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2em;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: white;
+    margin-bottom: 20px;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: rgba(0, 123, 255, 0.7);
+    /* Transparent blue button */
+    border: none;
+    color: white;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: rgba(0, 123, 255, 1);
+}
+
+/* Style the result table */
+.scrollable-results {
+    max-height: 400px;
+    /* Set the max height for the results */
+    overflow-y: auto;
+    /* Enable vertical scrolling if the content overflows */
+    margin-top: 20px;
+    width: 100%;
+    max-width: 800px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Transparent black background for table */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+th,
+td {
+    padding: 15px;
+    text-align: left;
+    font-size: 1.1em;
+    color: #fff;
+}
+
+th {
+    background-color: rgba(0, 123, 255, 0.7);
+    /* Transparent blue for header */
+}
+
+tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+tr:hover {
+    background-color: rgba(0, 123, 255, 0.3);
+    /* Hover effect for table rows */
+}
+
+/* Navigation Buttons Section */
+.navigation-buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nav-button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    background-color: rgba(0, 123, 255, 0.7);
+    /* Blue background */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-button:hover {
+    background-color: rgba(0, 123, 255, 1);
+    transform: translateY(-3px);
+    /* Subtle hover effect */
+}
+
+.nav-button.feedback {
+    background-color: rgba(255, 165, 0, 0.7);
+    /* Orange color for feedback */
+}
+
+.nav-button.feedback:hover {
+    background-color: rgba(255, 165, 0, 1);
+}
+
+.nav-button:focus {
+    outline: none;
+    border: 2px solid #fff;
+}
+
+/* Styling for the navigation buttons section */
+.navigation-buttons {
+    text-align: center;
+    /* Center the button */
+    margin-top: 20px;
+    /* Add spacing above the section */
+}
+
+/* Styling for the back button */
+.navigation-buttons .back-button {
+    display: inline-block;
+    /* Makes the link look like a button */
+    padding: 12px 24px;
+    /* Add padding for a comfortable button size */
+    background-color: #007BFF;
+    /* Primary blue color */
+    color: #fff;
+    /* White text for contrast */
+    font-size: 16px;
+    /* Readable font size */
+    font-weight: bold;
+    /* Makes the text stand out */
+    text-decoration: none;
+    /* Removes underline */
+    border-radius: 8px;
+    /* Rounded corners */
+    transition: all 0.3s ease;
+    /* Smooth hover effect */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Add a subtle shadow */
+}
+
+/* Hover effect for the button */
+.navigation-buttons .back-button:hover {
+    background-color: #0056b3;
+    /* Darker blue for hover */
+    color: #e0e0e0;
+    /* Slightly lighter text on hover */
+    transform: translateY(-3px);
+    /* Moves the button up slightly */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    /* Enhances the shadow */
+}
+
+/* Active state for the button */
+.navigation-buttons .back-button:active {
+    transform: translateY(1px);
+    /* Moves the button down on click */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Restores the shadow */
+    background-color: #004085;
+    /* Even darker blue for active */
+}

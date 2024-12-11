@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search with Constraints</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='searchconstraints.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Find SMILES Tool</h1>
+        <p>Select the properties and number of samples Molecule you want!</p>
+
+
+        <!-- Input Form -->
+        <form id="smilesForm" action="/features/searchconstraints" method="POST">
+            <div class="form-group">
+                <label for="bbbp">BBBP Property:</label>
+                <select name="bbbp" id="bbbp" required>
+                    <option value="1">1 (True)</option>
+                    <option value="0">0 (False)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="bace">BACE Property:</label>
+                <select name="bace" id="bace" required>
+                    <option value="1">1 (True)</option>
+                    <option value="0">0 (False)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="fda">FDA Property:</label>
+                <select name="fda" id="fda" required>
+                    <option value="1">1 (True)</option>
+                    <option value="0">0 (False)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="ctox">CTOX Property:</label>
+                <select name="ctox" id="ctox" required>
+                    <option value="1">1 (True)</option>
+                    <option value="0">0 (False)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="hiv">HIV Property:</label>
+                <select name="hiv" id="hiv" required>
+                    <option value="1">1 (True)</option>
+                    <option value="0">0 (False)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="k">Number of Samples (k):</label>
+                <input type="number" id="k" name="k" min="1" max="1000" placeholder="Enter k value" required>
+            </div>
+
+            <button type="submit" class="submit-button">Search</button>
+        </form>
+
+        <!-- Result Section -->
+
+        {% if smiles_list %}
+        <section class="results-section">
+            <h2>SMILES Results</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>SMILES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for smile in smiles_list %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td>{{ smile }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        {% endif %}
+
+        <!-- Navigation Buttons -->
+        <section class="navigation-buttons">
+            <a href="{{ url_for('mainpage.usermainpage') }}" class="back-button">Back to Main Page</a>
+        </section>
+    </div>
+</body>
+
+</html>

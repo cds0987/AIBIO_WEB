@@ -1,0 +1,201 @@
+/* General Body Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    background: url('/static/images/advancedtool.png') no-repeat center center / cover;
+    background-attachment: fixed;
+}
+
+/* Container */
+.container {
+    padding: 20px;
+    text-align: center;
+}
+
+/* Header Section */
+header {
+    margin-bottom: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin: 0;
+    color: #00ffff;
+    /* Neon Cyan */
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #ff69b4;
+    /* Neon Pink */
+    text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4;
+}
+
+/* Form Section */
+.form-section {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    max-width: 600px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-section input {
+    width: 80%;
+    padding: 10px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.btn-submit {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    background-color: #00ff7f;
+    /* Neon Green */
+    color: #fff;
+    cursor: pointer;
+    text-shadow: 0 0 5px #00ff7f, 0 0 10px #00ff7f;
+}
+
+.btn-submit:hover {
+    background-color: #32cd32;
+    /* Darker Neon Green */
+}
+
+/* Image Section */
+.image-visualization img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #fff;
+    border-radius: 10px;
+}
+
+/* Results Section */
+.prediction-results,
+.result-section,
+.similarity-results {
+    background-color: rgba(20, 20, 60, 0.8);
+    /* Deep Neon Blue */
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    color: #fff;
+}
+
+.prediction-results h2,
+.result-section h2,
+.similarity-results h2 {
+    color: #32cd32;
+    /* Lime Green */
+    text-shadow: 0 0 5px #32cd32, 0 0 10px rgba(50, 205, 50, 0.5);
+    /* Subtle glow */
+}
+
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table th,
+table td {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* Semi-transparent white border */
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: rgba(138, 43, 226, 0.9);
+    /* Neon Purple */
+    color: #fff;
+    text-shadow: 0 0 5px #fff, 0 0 10px #8a2be2;
+    /* Neon Glow */
+}
+
+table td {
+    background-color: rgba(0, 255, 255, 0.6);
+    /* Neon Cyan */
+    color: #000;
+    /* Dark text for contrast */
+}
+
+/* Scrollable Section */
+.scrollable-results {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* Subtle border */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Semi-transparent Black */
+}
+
+/* Navigation Buttons */
+.back-button,
+.feedback-button {
+    display: block;
+    width: 150px;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 5px;
+    background-color: #007BFF;
+    /* Neon Red */
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 0 auto;
+    box-shadow: 0 0 10px #007BFF, 0 0 20px #007BFF;
+}
+
+.back-button:hover,
+.feedback-button:hover {
+    background-color: #007BFF;
+    /* Lighter Neon Red */
+    box-shadow: 0 0 15px #007BFF, 0 0 30px #007BFF;
+}
+
+/* Navigation Section */
+.navigation-section {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    /* Space between buttons */
+    margin-top: 20px;
+}
+
+/* Two Tables Side by Side */
+.prediction-results .prediction-table,
+.similarity-results table {
+    display: inline-block;
+    width: 45%;
+    vertical-align: top;
+    margin: 0 2%;
+    background-color: rgba(72, 61, 139, 0.8);
+    /* Neon Indigo */
+    border-radius: 10px;
+    color: #fff;
+    text-shadow: 0 0 5px #fff;
+}
+
+@media screen and (max-width: 768px) {
+
+    .prediction-results .prediction-table,
+    .similarity-results table {
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+    }
+}

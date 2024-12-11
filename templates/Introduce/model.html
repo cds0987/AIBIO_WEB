@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Model Capacity - AI Platform</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='model.css') }}">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">TechBio AI Platform</div>
+      <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#models">Models</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to the AI componets of our Platform</h1>
+      <p>Explore cutting-edge AI models with extensive capabilities for biotech and more.</p>
+    </div>
+  </section>
+
+  <section id="overview" class="overview">
+    <div class="container">
+      <h2>Platform Overview</h2>
+      <p>Our platform offers a range of powerful models designed to accelerate your biotech research, from property
+        prediction to image analysis and language understanding. Each model is trained on specialized datasets to
+        deliver top-tier performance across a wide variety of tasks.</p>
+    </div>
+  </section>
+
+  <section id="models" class="models">
+    <div class="container">
+      <div class="back-to-main">
+        <a href="{{ url_for('general.home') }}" class="back-button">Back to Main Page</a>
+      </div>
+      <h2>Our Models</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Model Name</th>
+            <th>Task</th>
+            <th>Datasets</th>
+            <th>Number of Parameters</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>GAT-TRANSFORMER</td>
+            <td>Property Prediction</td>
+            <td>BBBP, BACE, CTOX, FDA, HIV, ESOLV, FREESOLV, LIPOPHILICITY, QM7, E1CC2, E2CC2, E1PBE0, E2PBE0, E1CAM,
+              E2CAM</td>
+            <td>14,497,860</td>
+          </tr>
+          <tr>
+            <td>CHEMBERTA-77MTR</td>
+            <td>Property Prediction</td>
+            <td>BBBP, BACE, CTOX, FDA, HIV, ESOLV, FREESOLV, LIPOPHILICITY, QM7</td>
+            <td>3,380,750</td>
+          </tr>
+          <tr>
+            <td>CHEMBERTA-77MLM</td>
+            <td>Property Prediction</td>
+            <td>BBBP, BACE, CTOX, FDA, HIV, ESOLV, FREESOLV, LIPOPHILICITY, QM7</td>
+            <td>3,380,750</td>
+          </tr>
+          <tr>
+            <td>MOLT5-SMALL</td>
+            <td>Generate Smile from text</td>
+            <td>Colossal Clean Crawled Corpus,ZINC-15</td>
+            <td>135,000,000</td>
+          </tr>
+          <tr>
+            <td>MOLT5-SMALL</td>
+            <td>Describe a molecule from text</td>
+            <td>Colossal Clean Crawled Corpus,ZINC-15</td>
+            <td>135,000,000</td>
+          </tr>
+          <tr>
+            <td>LSTM-MOBILENETV3</td>
+            <td>Describe a molecule from image</td>
+            <td>Image-smiles dataset</td>
+            <td>6,139,543</td>
+          </tr>
+          <tr>
+            <td>Molformer</td>
+            <td>Feature Extraction Smiles</td>
+            <td>PubChem, ZINC-15</td>
+            <td>45,000,000</td>
+          </tr>
+          <tr>
+            <td>all-MiniLM-L12-v2</td>
+            <td>Text Feature Extraction</td>
+            <td>MS MARCO, NLI datasets, and other English-based datasets</td>
+            <td>33,400,000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+
+  <footer id="contact">
+    <div class="container">
+      <p>&copy; 2024 AGENBIO AI Platform. All Rights Reserved. | <a href="mailto:contact@techbio.ai">Contact Us</a></p>
+    </div>
+  </footer>
+</body>
+
+</html>

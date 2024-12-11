@@ -1,0 +1,275 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and overall layout */
+body {
+    font-family: 'Arial', sans-serif;
+    background: url('/static/Images/mainpage.webp') no-repeat center center fixed;
+    background-size: cover; /* Ensure the background image covers the entire screen */
+    background-position: center; /* Center the image */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 20px;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    background-color: #333;
+    color: #fff;
+    width: 300px;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: -300px;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+/* User Information Section */
+.sidebar .user-info {
+    margin-bottom: 30px;
+}
+
+.sidebar .user-info h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #ff6f61;
+    font-weight: bold;
+}
+
+/* Align labels and values */
+/* Align labels and values, prevent wrapping */
+.sidebar .user-info p {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Two columns: label and value */
+    gap: 10px; /* Space between columns */
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #ccc;
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Prevent overflow if content is too wide */
+    text-overflow: ellipsis; /* Show ellipsis if content overflows */
+}
+
+.sidebar .user-info p span {
+    font-weight: bold; /* Make the label (Name, Email, Access Level) bold */
+    color: #fff; /* Change label color for better contrast */
+    text-overflow: ellipsis; /* Ensure text is truncated with ellipsis if it's too long */
+    white-space: nowrap; /* Prevent wrapping */
+}
+
+
+.sidebar-toggle {
+    position: absolute;
+    top: 20px;
+    right: -50px;
+    background-color: #ff6f61;
+    color: white;
+    font-size: 30px;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+
+.sidebar-toggle:hover {
+    background-color: #ff3d2e;
+}
+
+
+/* Main Content */
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+    flex: 1;
+    transition: all 0.3s ease;
+}
+
+.main-content header {
+    margin-bottom: 40px;
+}
+
+.main-content h1 {
+    font-size: 2.5rem;
+    color: #333;
+    text-align: center;
+}
+
+/* Feature Cards Grid */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.feature-card {
+    background: linear-gradient(135deg, #ff6f61, #ff9f91);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.feature-card p {
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+/* Hover effects */
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .wrapper {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        left: -300px; /* Initially hidden on small screens */
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .sidebar-toggle {
+        display: block;
+    }
+
+    .container {
+        padding: 0;
+    }
+}
+
+/* Transition Effect for Sidebar */
+@keyframes slideIn {
+    from {
+        left: -300px;
+    }
+    to {
+        left: 0;
+    }
+}
+/* Styling for h1 */
+h1 {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 3rem; /* Large font size */
+    font-weight: 700;
+    color: #FFD700; /* Vibrant yellow text color */
+    text-align: center;
+    margin-bottom: 40px;
+    background: linear-gradient(135deg, #007BFF, #00BFFF); /* Blue gradient */
+    -webkit-background-clip: text;
+    background-clip: text;
+    display: inline-block;
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for h1 */
+h1:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+.user-operations ul {
+    list-style-type: none;
+    padding: 0;
+}
+.user-operations ul li a {
+    text-decoration: none;
+    color: #007bff;
+    display: block;
+    padding: 8px;
+    margin: 5px 0;
+}
+.user-operations ul li a:hover {
+    background-color: #f0f0f0;
+}
+.feature-card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px;
+    background: gray; /* Set the background to solid gray */
+    color: white;
+    transition: transform 0.2s ease-in-out, background 0.2s ease-in-out;
+}
+
+.feature-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    background: darkgray; /* Optionally, transition to a darker gray on hover */
+}
+
+
+.logout-button {
+    display: inline-block;
+    margin-left: 20px;
+    padding: 8px 16px;
+    background-color: #ff4d4d;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.logout-button:hover {
+    background-color: #e60000;
+}
+.notification {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    position: fixed; /* Make it fixed so it doesn't shift other content */
+    top: 20px; /* Position from the top */
+    left: 50%;
+    transform: translateX(-50%); /* Center it horizontally */
+    z-index: 1000; /* Ensure it's above other content */
+    width: 80%; /* Adjust the width if needed */
+    max-width: 500px; /* Optional: Limit the max width */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better visibility */
+}

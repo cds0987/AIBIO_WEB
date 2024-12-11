@@ -1,0 +1,208 @@
+/* General Styles */
+body {
+    background-image: url('/static/Images/searchconstraint.jpg');
+    /* Corrected background image path */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+/* Container */
+.container {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+    max-width: 700px;
+    width: 90%;
+    margin: 20px;
+}
+
+/* Heading */
+h1 {
+    margin-bottom: 10px;
+    font-size: 2.5em;
+    color: #00d4ff;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+p {
+    font-size: 1.2rem;
+    /* Slightly larger text for readability */
+    color: #2c3e50;
+    /* Dark gray text color for good contrast */
+    line-height: 1.5;
+    /* Improved line spacing for readability */
+    padding: 10px;
+    /* Add some padding for breathing room */
+    background-color: #ecf0f1;
+    /* Light background color for a soft appearance */
+    border-radius: 8px;
+    /* Rounded corners for a smooth look */
+    text-align: center;
+    /* Center the text for better presentation */
+    font-family: 'Arial', sans-serif;
+    /* Clean, easy-to-read font */
+}
+
+code {
+    color: #e74c3c;
+    /* Highlight 'k' in vibrant red */
+    font-weight: bold;
+    /* Make 'k' stand out */
+}
+
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+label {
+    margin-bottom: 5px;
+    font-size: 1.2em;
+}
+
+input,
+select {
+    padding: 10px;
+    font-size: 1em;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    outline: none;
+}
+
+input:focus,
+select:focus {
+    border-color: #00d4ff;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.submit-button {
+    background-color: #00d4ff;
+    color: black;
+    padding: 12px 20px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #009ecc;
+    color: white;
+}
+
+/* Results Section */
+.results-section {
+    margin-top: 30px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.table-container {
+    max-height: 300px;
+    overflow-y: auto;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+th {
+    background-color: rgba(0, 212, 255, 0.3);
+}
+
+tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+tr:hover {
+    background-color: rgba(0, 212, 255, 0.2);
+}
+
+* Styling for the navigation buttons section */ .navigation-buttons {
+    text-align: center;
+    /* Center the button */
+    margin-top: 20px;
+    /* Add spacing above the section */
+}
+
+/* Styling for the back button */
+.navigation-buttons .back-button {
+    display: inline-block;
+    /* Makes the link look like a button */
+    padding: 12px 24px;
+    /* Add padding for a comfortable button size */
+    background-color: #007BFF;
+    /* Primary blue color */
+    color: #fff;
+    /* White text for contrast */
+    font-size: 16px;
+    /* Readable font size */
+    font-weight: bold;
+    /* Makes the text stand out */
+    text-decoration: none;
+    /* Removes underline */
+    border-radius: 8px;
+    /* Rounded corners */
+    transition: all 0.3s ease;
+    /* Smooth hover effect */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Add a subtle shadow */
+}
+
+/* Hover effect for the button */
+.navigation-buttons .back-button:hover {
+    background-color: #0056b3;
+    /* Darker blue for hover */
+    color: #e0e0e0;
+    /* Slightly lighter text on hover */
+    transform: translateY(-3px);
+    /* Moves the button up slightly */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    /* Enhances the shadow */
+}
+
+/* Active state for the button */
+.navigation-buttons .back-button:active {
+    transform: translateY(1px);
+    /* Moves the button down on click */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Restores the shadow */
+    background-color: #004085;
+    /* Even darker blue for active */
+}

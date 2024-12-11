@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Experiment Tracking</title>
+    <!-- Link the external CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='trackusers.css') }}">
+</head>
+
+<body>
+    <div class="user-management">
+        <header class="header">
+            <h1>User Experiment Tracking</h1>
+        </header>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Search users..." onkeyup="filterTable()">
+        </div>
+
+        <section class="navigation-buttons">
+            <a href="/mainpage/admin" class="nav-button">Back to Main Page</a>
+        </section>
+
+        <!-- Notification Message -->
+        {% if message %}
+        <div class="notification" id="notification">
+            <p>{{ message }}</p>
+        </div>
+        {% endif %}
+
+        <main class="content">
+            <!-- Scrollable User Table -->
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>UserID</th>
+                            <th>Model Name</th>
+                            <th>Feedback</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for result in results %}
+                        <tr>
+                            <td>{{ result['UserID'] }}</td>
+                            <td>{{ result['ModelName'] }}</td>
+                            <td>{{ result['Feedback'] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+
+        </main>
+    </div>
+
+    <script>
+        // Function to filter the table based on the search input
+        function filterTable() {
+            const searchValue = document.getElementById("search").value.toLowerCase();
+            const rows = document.querySelectorAll("table tbody tr");
+
+            rows.forEach(row => {
+                const cells = row.getElementsByTagName("td");
+                let matchFound = false;
+
+                // Check each cell in the row for a match
+                for (let i = 0; i < cells.length; i++) {
+                    if (cells[i].textContent.toLowerCase().includes(searchValue)) {
+                        matchFound = true;
+                        break; // No need to check further cells if one matches
+                    }
+                }
+
+                // Display or hide the row based on the match
+                if (matchFound) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        }
+
+    </script>
+</body>
+
+</html>

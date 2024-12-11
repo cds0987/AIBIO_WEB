@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreeMode: SMILES Results</title>
+    <!-- Corrected href to link CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='advancedtool.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header with introduction -->
+        <header>
+            <h1>Welcome to our Platform</h1>
+            <p>Tools for you to Analyse all Molecules</p>
+        </header>
+
+        <!-- Form to submit SMILES -->
+        <section class="form-section">
+            <h2>Enter a SMILES String</h2>
+            <form action="/features/advanced" method="post">
+                <div class="input-group">
+                    <input type="text" name="smiles" placeholder="Enter a SMILES string" required />
+                </div>
+                <button type="submit" class="btn-submit">Submit</button>
+            </form>
+        </section>
+
+        {% if img_path %}
+        <!-- Image Visualization Section -->
+        <section class="image-visualization">
+            <h3>Molecular Visualization:</h3>
+            <div class="molecular-image">
+                <img src="{{ img_path }}" alt="Molecular Visualization" />
+            </div>
+        </section>
+        {% endif %}
+
+        {% if results %}
+        <!-- Prediction Results Section -->
+        <section class="prediction-results">
+            <h2>Predicted Results</h2>
+            <p>Here are the predicted properties based on the SMILES string you submitted:</p>
+            <!-- Display predictions as a table -->
+            <h3>Predictions:</h3>
+            <table class="prediction-table">
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Prediction</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Blood-Brain Barrier (BBBP):</strong></td>
+                        <td>{{ results['bbbp'] }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Alzheimer's Risk (BACE):</strong></td>
+                        <td>{{ results['bace'] }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Toxicity (CTOX):</strong></td>
+                        <td>{{ results['ctox'] }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>FDA Approval Chance (FDA):</strong></td>
+                        <td>{{ results['fda'] }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Solubility (ESOL):</strong></td>
+                        <td>{{ results['esol'] }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Solubility Prediction (FreeSolv):</strong></td>
+                        <td>{{ results['freesolv'] }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fat Solubility (Lipophilicity):</strong></td>
+                        <td>{{ results['lipophilicity'] }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Molecular Data (QM7):</strong></td>
+                        <td>{{ results['qm7'] }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>HIV Inhibitor Prediction (HIV):</strong></td>
+                        <td>{{ results['hiv'] }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Electrostatic Potential 1 (E1CC2):</strong></td>
+                        <td>{{ results['e1cc2'] }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Electrostatic Potential 2 (E2CC2):</strong></td>
+                        <td>{{ results['e2cc2'] }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Energy Calculation 1 (E1PBE0):</strong></td>
+                        <td>{{ results['e1pbe0'] }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Energy Calculation 2 (E2PBE0):</strong></td>
+                        <td>{{ results['e2pbe0'] }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Energy Calculation 1 (E1CAM):</strong></td>
+                        <td>{{ results['e1cam'] }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Energy Calculation 2 (E2CAM):</strong></td>
+                        <td>{{ results['e2cam'] }}</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </section>
+        {% endif %}
+        {% if smiles %}
+        <!-- Display the result -->
+        <section class="result-section">
+            <h2>Desciption of your Smiles:</h2>
+            <p><strong>SMILES:</strong> {{ smiles }}</p>
+            <p><strong>The structure of your Smiles:</strong> {{ description }}</p>
+        </section>
+        {% endif %}
+        {% if similarities %}
+        <div class="similarity-results">
+            <h2>Similarity Smiles:</h2>
+            <div class="scrollable-results">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>SMILES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for result in similarities %}
+                        <tr>
+                            <td>{{ result.smiles }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% endif %}
+
+
+        <!-- Navigation Buttons -->
+        <section class="navigation-section">
+            <div class="back-to-main">
+                <a href="{{ url_for('mainpage.usermainpage') }}" class="back-button">Back to Main Page</a>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

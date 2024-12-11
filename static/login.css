@@ -1,0 +1,164 @@
+/* Background Image */
+body {
+  background: url('/static/Images/login.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: Arial, sans-serif;
+}
+
+/* Container */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Login Form Styling */
+.login-form {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
+}
+
+.login-form h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.login-form label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.remember label {
+  margin-left: 5px;
+}
+
+.btn-login {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-login:hover {
+  background-color: #0056b3;
+}
+
+.forgot-password {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.forgot-password a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.forgot-password a:hover {
+  text-decoration: underline;
+}
+
+/* Social Login Buttons */
+.social-login {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.social-login button {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-facebook {
+  background-color: #3b5998;
+  color: white;
+}
+
+.btn-twitter {
+  background-color: #00acee;
+  color: white;
+}
+
+.btn-google {
+  background-color: #db4a39;
+  color: white;
+}
+
+.social-login button:hover {
+  opacity: 0.9;
+}
+.register-now {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+}
+.register-now a {
+    color: #007bff;
+    text-decoration: none;
+}
+.register-now a:hover {
+    text-decoration: underline;
+}
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #f5c6cb;
+  border-radius: 5px;
+}
+.button-container {
+  display: flex; /* Enables flexbox */
+  justify-content: center; /* Centers the buttons horizontally */
+  gap: 10px; /* Adds space between the buttons */
+  margin: 20px 0; /* Optional: Adds some vertical spacing for the container */
+}
+
+.admin-button, .back-button {
+  display: inline-block; /* Ensures the buttons are inline-block elements */
+  padding: 10px 20px; /* Adjust padding for button size */
+  text-decoration: none; /* Removes underline from links */
+  color: white; /* Button text color */
+  background-color: #007BFF; /* Button background color */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 16px; /* Adjust font size */
+  text-align: center; /* Centers text inside the button */
+  transition: background-color 0.3s; /* Smooth color transition on hover */
+}
+
+.admin-button:hover, .back-button:hover {
+  background-color: #0056b3; /* Darker color on hover */
+}
+
+
+

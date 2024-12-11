@@ -1,0 +1,143 @@
+/* General body styling with vibrant background */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url('/static/Images/analyze.jpg') no-repeat center center/cover;
+    background-attachment: fixed;
+    color: #fff; /* Ensure text is readable on the vibrant background */
+}
+
+/* Transparent visualization container */
+.custom-container {
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+    backdrop-filter: blur(10px); /* Adds a frosted glass effect */
+    text-align: center;
+    color: #f1f1f1; /* Light text for readability */
+}
+
+/* Title styling */
+.custom-title {
+    font-size: 30px;
+    font-weight: bold;
+    color: #eaeaea; /* Slightly lighter text for the title */
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* Form styling */
+.custom-form {
+    margin-top: 15px;
+}
+
+.custom-form-group {
+    margin-bottom: 20px;
+}
+
+.custom-label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ddd; /* Softer white for labels */
+    text-align: left;
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* Input field styling */
+.custom-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.4); /* Light border */
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent input background */
+    color: #fff;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.custom-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    background: rgba(255, 255, 255, 0.3); /* Slightly brighter on focus */
+}
+
+/* Submit button styling */
+.custom-button {
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #28a745; /* Green for button */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.custom-button:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: scale(1.05);
+}
+
+/* Navigation buttons (Back and Feedback) */
+.back-to-main,
+.feedback-section {
+    margin-top: 20px;
+}
+
+.back-button,
+.feedback-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+    background-color: #007bff; /* Vibrant blue */
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.back-button:hover,
+.feedback-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05);
+}
+
+/* Alert styling */
+.custom-alert {
+    margin-top: 15px;
+    padding: 10px;
+    color: #856404;
+    background-color: rgba(255, 243, 205, 0.9);
+    border: 1px solid #ffeeba;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .custom-container {
+        padding: 15px;
+    }
+
+    .custom-title {
+        font-size: 24px;
+    }
+
+    .custom-button,
+    .back-button,
+    .feedback-button {
+        font-size: 16px;
+    }
+}

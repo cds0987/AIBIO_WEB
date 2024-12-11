@@ -1,0 +1,171 @@
+/* Basic styling for the form and result sections */
+body {
+    font-family: Arial, sans-serif;
+    background: url('/static/Images/caption.jpg') no-repeat center center/cover;
+    background-attachment: fixed;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    color: #1abc9c;
+    /* Vibrant turquoise */
+    text-align: center;
+}
+
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 1.2rem;
+    color: #e74c3c;
+    /* Vibrant red */
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e74c3c;
+    /* Vibrant red border */
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-top: 5px;
+    background-color: #f9f9f9;
+    /* Light background for contrast */
+}
+
+.form-group input:focus {
+    border-color: #f39c12;
+    /* Change border color to vibrant yellow-orange on focus */
+    outline: none;
+}
+
+
+.btn-submit {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background-color: #2980b9;
+}
+
+/* Result Section */
+.result-section {
+    margin-top: 30px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.result-section h2 {
+    color: #2ecc71;
+}
+
+.result-section p {
+    font-size: 1.1rem;
+    color: #34495e;
+}
+
+.back-to-main {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.back-button {
+    text-decoration: none;
+    background-color: #004085;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.back-button:hover {
+    background-color: #c0392b;
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .form-group input,
+    .btn-submit {
+        font-size: 1rem;
+    }
+}
+
+/* Styling for the navigation buttons section */
+.navigation-buttons {
+    text-align: center;
+    /* Center the button */
+    margin-top: 20px;
+    /* Add spacing above the section */
+}
+
+/* Styling for the back button */
+.navigation-buttons .back-button {
+    display: inline-block;
+    /* Makes the link look like a button */
+    padding: 12px 24px;
+    /* Add padding for a comfortable button size */
+    background-color: #007BFF;
+    /* Primary blue color */
+    color: #fff;
+    /* White text for contrast */
+    font-size: 16px;
+    /* Readable font size */
+    font-weight: bold;
+    /* Makes the text stand out */
+    text-decoration: none;
+    /* Removes underline */
+    border-radius: 8px;
+    /* Rounded corners */
+    transition: all 0.3s ease;
+    /* Smooth hover effect */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Add a subtle shadow */
+}
+
+/* Hover effect for the button */
+.navigation-buttons .back-button:hover {
+    background-color: #0056b3;
+    /* Darker blue for hover */
+    color: #e0e0e0;
+    /* Slightly lighter text on hover */
+    transform: translateY(-3px);
+    /* Moves the button up slightly */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    /* Enhances the shadow */
+}
+
+/* Active state for the button */
+.navigation-buttons .back-button:active {
+    transform: translateY(1px);
+    /* Moves the button down on click */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Restores the shadow */
+    background-color: #004085;
+    /* Even darker blue for active */
+}

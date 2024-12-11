@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Searcing</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='searchsmiles.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Search Similarity Molecules</h1>
+
+        <!-- Form to input SMILES -->
+        <form action="/features/searchsmiles" method="POST">
+            <label for="smiles">Enter SMILES:</label>
+            <input type="text" name="smiles" id="smiles" value="{{ smiles }}" required>
+            <button type="submit">Search</button>
+        </form>
+
+        {% if similarities %}
+        <div class="results-section">
+            <h2>Similarity Results:</h2>
+            <div class="scrollable-results">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>SMILES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for result in similarities %}
+                        <tr>
+                            <td>{{ result.smiles }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Navigation Buttons -->
+        <section class="navigation-buttons">
+            <a href="{{ url_for('mainpage.usermainpage') }}" class="back-button">Back to Main Page</a>
+        </section>
+    </div>
+</body>
+
+</html>

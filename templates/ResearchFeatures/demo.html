@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo</title>
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='demo.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>Welcome to our Platform</h1>
+            <p>Visualize and Predict Molecular Properties of all Molecules</p>
+        </header>
+
+        <!-- Notification for errors -->
+
+
+        <!-- Disable form if user has exceeded usage limit -->
+        {% if not error or 'exceeded' not in error.lower() %}
+        <section class="form-section">
+            <h2>Enter a SMILE String</h2>
+            <form action="/features/demoprocess" method="post">
+                <div class="input-group">
+                    <input type="text" name="smiles" placeholder="Enter a SMILES string" required />
+                </div>
+                <div class="input-group">
+                    <label for="use_model">Select Model:</label>
+                    <select name="use_model" id="use_model" required>
+                        <option value="1">Model 1</option>
+                        <option value="2">Model 2</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-submit">Submit</button>
+            </form>
+        </section>
+        {% else %}
+        <section class="form-section disabled">
+            <h2>Submission Disabled</h2>
+            <p>{{ error }}</p>
+        </section>
+        {% endif %}
+
+        <!-- Results Section -->
+        {% if prediction %}
+        <section class="results-section">
+            <h2>Predicted Results</h2>
+            <p>Here are the predicted properties based on the SMILES string you submitted:</p>
+
+            <!-- Display molecular image -->
+            <h3>Molecular Visualization:</h3>
+            <div class="molecular-image">
+                <img src="{{ img_path }}" alt="Molecular Visualization" />
+            </div>
+
+            <!-- Display predictions -->
+            <h3>Predictions:</h3>
+            <ul class="prediction-list">
+                <li><strong>BBBP (Brain Barrier):</strong> {{ prediction['bbbp'] }}</li>
+                <li><strong>BACE (Alzheimer's Risk):</strong> {{ prediction['bace'] }}</li>
+                <li><strong>CTOX (Toxicity):</strong> {{ prediction['ctox'] }}</li>
+                <li><strong>FDA (Approval Chance):</strong> {{ prediction['fda'] }}</li>
+                <li><strong>ESOL (Solubility):</strong> {{ prediction['esol'] }}</li>
+                <li><strong>FreeSolv (Solubility Prediction):</strong> {{ prediction['freesolv'] }}</li>
+                <li><strong>Lipophilicity (Fat Solubility):</strong> {{ prediction['lipophilicity'] }}</li>
+                <li><strong>QM7 (Molecular Data):</strong> {{ prediction['qm7'] }}</li>
+
+
+            </ul>
+        </section>
+        {% endif %}
+
+        <section class="back-to-main">
+            <a href="{{ url_for('general.home') }}" class="back-button">Back to Main Page</a>
+        </section>
+    </div>
+</body>
+
+</html>

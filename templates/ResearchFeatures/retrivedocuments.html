@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Information Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='retrivedocuments.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>AI Information Search</h1>
+
+        <!-- Table Layout -->
+        <table class="content-table">
+            <tr>
+                <td class="form-cell">
+                    <div class="chatbox">
+                        <form action="/features/retrive" method="POST">
+                            <div class="user-input">
+                                <label for="query">What documents you want to explore?</label>
+                                <textarea name="query" id="query" rows="4" placeholder="Type your query here..."
+                                    required></textarea>
+                            </div>
+                            <button type="submit" class="search-button">Search</button>
+                        </form>
+                    </div>
+                </td>
+                <td class="results-cell">
+                    {% if results %}
+                    <section class="results-section">
+                        <h2>Search Results</h2>
+                        <!-- arXiv Results -->
+                        {% if results.arxiv %}
+                        <div class="arxiv-results">
+                            <h3>Results from Ariv Papers</h3>
+                            {% for entry in results.arxiv %}
+                            <div class="result-entry">
+                                <h4>Keyword: {{ entry.keyword }}</h4>
+                                <ul>
+                                    {% for paper in entry.papers %}
+                                    <li>
+                                        <p><strong>Title:</strong> {{ paper.title }}</p>
+                                        <p><strong>Summary:</strong> {{ paper.summary }}</p>
+                                        <p><strong>Published:</strong> {{ paper.published }}</p>
+                                        <a href="{{ paper.url }}" target="_blank">Read Full Paper</a>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </section>
+                    {% endif %}
+                </td>
+            </tr>
+        </table>
+
+        <!-- Navigation Buttons -->
+        <section class="navigation-buttons">
+            <a href="{{ url_for('mainpage.usermainpage') }}" class="back-button">Back to Main Page</a>
+        </section>
+    </div>
+</body>
+
+</html>

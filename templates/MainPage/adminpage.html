@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admindashboard.css') }}">
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="user-info">
+                <h2>Manager Information</h2>
+                <p>Name: {{ session.get('full_name', 'Guest') }}</p>
+                <p>Email: {{ session.get('email', 'Not available') }}</p>
+            </div>
+            <hr>
+            <div class="user-operations">
+                <h2>Operations</h2>
+                <ul>
+                    <li><a href="/auth/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </div>
+            <!-- Sidebar toggle button placed on sidebar itself -->
+            <button class="sidebar-toggle" id="sidebar-toggle">☰</button>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="container">
+                <!-- Feature Cards with links -->
+                <a href="/mainpage/mouser" class="feature-card vibrant">
+                    <h3>Users Management</h3>
+                    <p>Manage information of Users in Platform</p>
+                </a>
+                <a href="/mainpage/movetrack" class="feature-card vibrant">
+                    <h3>Tracking User's Satisfaction</h3>
+                    <p>Information of User's Experiment</p>
+                </a>
+                <a href="/mainpage/moverecord" class="feature-card vibrant">
+                    <h3>Record Model's Specifications</h3>
+                    <p>All information of Models using in Platform</p>
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Toggle Sidebar visibility
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const sidebar = document.getElementById('sidebar');
+
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+    </script>
+</body>
+
+</html>

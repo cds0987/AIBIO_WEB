@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Describe Molecule Image</title>
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='moleculeimage.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <h1>Molecule Image Descriptor</h1>
+            <p>Upload an image of a molecule to receive a description of its structure and properties.</p>
+        </header>
+
+        <!-- Form Section -->
+        <section class="form-section">
+            <h2>Upload Molecule Image</h2>
+            <form action="/features/describe_image" method="post" enctype="multipart/form-data">
+                <div class="input-group">
+                    <label for="moleculeimage">Choose an image:</label>
+                    <input type="file" id="moleculeimage" name="moleculeimage" accept="image/*" required>
+                </div>
+                <button type="submit" class="btn-submit">Upload and Describe</button>
+            </form>
+        </section>
+
+        <!-- Results Section -->
+        {% if description and img_path %}
+        <section class="results-section">
+            <div class="result-content">
+                <!-- Uploaded Image Section -->
+                <div class="image-box">
+                    <h2>Uploaded Image:</h2>
+                    <div class="zoom-container">
+                        <img src="{{ img_path }}" alt="Molecular Visualization" class="zoomable">
+                    </div>
+                </div>
+
+
+                <!-- SMILES Section -->
+                <div class="smiles-box">
+                    <h2>Generated SMILES:</h2>
+                    <p>{{ smiles }}</p>
+                </div>
+
+                <!-- Description Section -->
+                <div class="description-box">
+                    <h2>Description of Generated SMILES:</h2>
+                    <p>{{ description }}</p>
+                </div>
+            </div>
+        </section>
+        {% endif %}
+
+        <!-- Navigation Buttons -->
+        <section class="navigation-buttons">
+            <a href="{{ url_for('mainpage.usermainpage') }}" class="back-button">Back to Main Page</a>
+        </section>
+    </div>
+</body>
+
+</html>

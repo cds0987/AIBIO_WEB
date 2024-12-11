@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+</head>
+
+<body>
+  <div class="container">
+    <!-- Login Form -->
+    <div class="login-form">
+      <h1>Login</h1>
+
+      <!-- Display Error Message -->
+      {% if status == 'error' %}
+      <div class="error-message">
+        <p>{{ message }}</p>
+      </div>
+      {% endif %}
+
+      <form action="/auth/userformlogin" method="POST">
+        <label for="user_id">UserID</label>
+        <input type="text" id="user_id" name="user_id" required placeholder="Enter your UserID">
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required placeholder="Enter your password">
+
+        <button type="submit" class="btn-login">Login</button>
+
+      </form>
+      <p class="register-now">
+        Don't have an account? <a href="{{ url_for('auth.register') }}">Register now</a>.
+      </p>
+      <!-- Link to Registration -->
+      <div class="button-container">
+        <a href="{{ url_for('auth.al') }}" class="admin-button">If you are admin</a>
+        <!-- Back to Main Page Link (Below the form) -->
+        <a href="{{ url_for('general.home') }}" class="back-button">Back to Main Page</a>
+      </div>
+
+    </div>
+  </div>
+</body>
+
+</html>

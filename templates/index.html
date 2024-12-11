@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AGENBIO Powerhouse</title>
+  <!-- Correctly link to the CSS file from the static folder using Flask's url_for -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">AGENBIO</div>
+      <ul>
+        <!-- Example of Flask routing for links -->
+        <li><a href="{{ url_for('general.about') }}">ABOUT US</a></li>
+        <li><a href="{{ url_for('general.model_capacity') }}">MODEL CAPABILITIES</a></li> <!-- Updated here -->
+        <li><a href="{{ url_for('general.media') }}">INVESTORS & MEDIA</a></li>
+        <li><a href="{{ url_for('general.references') }}">REFERENCES</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1> <span>AGENBIO</span> Powerhouse</h1>
+      <p>Leveraging AGI to Revolutionize Pharmacology: Accelerate Drug Development with Intelligent Research Tools.</p>
+      <div class="buttons">
+        <a href="{{ url_for('mainpage.demo') }}" class="button pink">Let demo our platform</a>
+        <a href="{{ url_for('auth.ul') }}" class="button blue">START TO WORK</a>
+      </div>
+    </div>
+    <div class="hero-bg"></div>
+  </section>
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+/* General reset */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url('/static/images/adminlogin.jpg') no-repeat center center / cover;
+    background-attachment: fixed;
+    color: #333333;
+}
+
+/* Centering container */
+.login-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    /* White with 80% opacity */
+    backdrop-filter: blur(10px);
+    /* Blurred background effect */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    color: #333333;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333333;
+}
+
+/* Styling form elements */
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #555555;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Button Container Styling */
+.button-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Back Button Styling */
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #ffffff;
+    background-color: #6c757d;
+    /* Gray button */
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.back-button:hover {
+    background-color: #5a6268;
+    /* Darker gray for hover */
+    transform: translateY(-2px);
+}
+
+.back-button:active {
+    background-color: #495057;
+    /* Even darker gray for active state */
+    transform: translateY(0);
+}
+
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+}
+
+/* Responsive design */
+@media (max-width: 500px) {
+    .login-container {
+        margin: 50px 20px;
+    }
+}

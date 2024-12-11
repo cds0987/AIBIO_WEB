@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualize</title>
+    <!-- Corrected href to link CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='visualize.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header with introduction -->
+        <header>
+            <h1>Welcome to our Platform</h1>
+            <p>Visualize the structure of Molecules</p>
+        </header>
+
+        <!-- Form to submit SMILES -->
+        <section class="form-section">
+            <h2>Enter a SMILE String</h2>
+            <form action="/features/visualize" method="post">
+                <div class="input-group">
+                    <input type="text" name="smiles" placeholder="Enter a Molecule Formula" required />
+                </div>
+                <button type="submit" class="btn-submit">Submit</button>
+            </form>
+        </section>
+
+        <!-- Results Section -->
+        {% if smiles %}
+        <section class="results-section">
+            <div class="results">
+                <h2>Molecular Visualization:</h2>
+                <p><strong>Molecules:</strong> {{ smiles }}</p>
+                <div class="molecular-image">
+                    <img src="{{ img_path }}" alt="Molecular Visualization" />
+                </div>
+            </div>
+        </section>
+        {% endif %}
+
+
+        <!-- Back to Main Page Button -->
+        <section class="back-to-main">
+            <a href="{{ url_for('mainpage.usermainpage') }}" class="back-button">Back to Main Page</a>
+        </section>
+    </div>
+</body>
+
+</html>

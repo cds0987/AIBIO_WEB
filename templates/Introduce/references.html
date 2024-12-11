@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechBio App Development Resources</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='references.css') }}">
+
+</head>
+
+<body>
+
+  <div class="container">
+    <!-- Back to Main Page Link -->
+    <div class="back-to-main">
+      <a href="{{ url_for('general.home') }}" class="back-button">Back to Main Page</a>
+    </div>
+
+    <h1>AGENBIO App Development Resources</h1>
+    <p>Welcome to the reference page for building your AI-powered biotech application. Below are links to resources and
+      tools you can use, including AI models, frameworks, and bioinformatics tools for drug discovery, molecular
+      modeling, and data analysis.</p>
+
+    <!-- AI & Machine Learning Frameworks -->
+    <h2>AI & Machine Learning Frameworks</h2>
+    <ul id="ai-links">
+      <li><a href="https://huggingface.co/" target="_blank">Hugging Face</a> - A popular platform for natural language
+        processing (NLP) and other AI models, including pretrained transformers for research and production use.</li>
+      <li><a href="https://pytorch.org/" target="_blank">PyTorch</a> - A deep learning framework widely used for
+        building AI models and training neural networks.</li>
+    </ul>
+
+    <!-- AI Research Papers and Resources -->
+    <h3>AI Research Papers and Resources</h3>
+    <ul>
+      <li><a href="https://arxiv.org/" target="_blank">arXiv</a> - Open-access repository for research papers in AI,
+        machine learning, and other scientific fields. It includes papers related to both theory and application of AI.
+      </li>
+      <li><a href="https://ieeexplore.ieee.org/" target="_blank">IEEE Xplore</a> - A digital library for IEEE journals,
+        conferences, and standards, including cutting-edge research in AI and machine learning.</li>
+      <li><a href="https://paperswithcode.com/" target="_blank">Papers with Code</a> - A site that connects machine
+        learning papers with their implementations, providing code links alongside academic articles to facilitate
+        reproducibility.</li>
+    </ul>
+
+    <h4>Notable AI Papers:</h4>
+    <ul>
+      <li><a href="https://arxiv.org/abs/1706.03762" target="_blank">Attention is All You Need (Transformer Model)</a> -
+        This paper by Vaswani et al. introduces the transformer architecture, revolutionizing the field of NLP.</li>
+      <li><a href="https://arxiv.org/abs/1512.03385" target="_blank">MobileNetV3: Efficient Convolutional Neural
+          Networks for Mobile Vision Applications</a> - This paper by Howard et al. presents MobileNetV3, an efficient
+        CNN model for mobile applications, focusing on optimizing performance while minimizing computational complexity.
+      </li>
+      <li><a href="https://arxiv.org/abs/1801.10198" target="_blank">BERT: Pre-training of Deep Bidirectional
+          Transformers for Language Understanding</a> - A significant paper on BERT, a transformer-based model that has
+        set new records in NLP tasks.</li>
+      <li><a href="https://arxiv.org/abs/1802.06038" target="_blank">AlphaFold: Using AI for Protein Folding</a> - This
+        paper from DeepMind explores the use of AI in solving protein folding problems, a breakthrough in the
+        intersection of AI and biotechnology.</li>
+    </ul>
+
+    <!-- Bioinformatics and Chemoinformatics Tools -->
+    <h2>Bioinformatics and Chemoinformatics Tools</h2>
+    <ul id="bioinformatics-links">
+      <li><a href="https://www.rdkit.org/" target="_blank">RDKit</a> - A powerful library for cheminformatics, including
+        tools for molecular manipulation, descriptor calculation, and similarity searches.</li>
+      <li><a href="https://pubchem.ncbi.nlm.nih.gov/" target="_blank">PubChem</a> (PubChem Database) - A public chemical
+        database providing information on the biological activities of small molecules. Useful for drug discovery and
+        molecular searches.</li>
+    </ul>
+
+    <!-- Additional Resources for Bio Development -->
+    <h2>Additional Resources for Bio Development</h2>
+    <ul>
+      <li><a href="https://www.genomeweb.com/" target="_blank">GenomeWeb</a> - Provides news and resources for the
+        latest advancements in genomics, bioinformatics, and biotechnology.</li>
+      <li><a href="https://www.ncbi.nlm.nih.gov/" target="_blank">NCBI</a> - The National Center for Biotechnology
+        Information, offering a wealth of bioinformatics tools and datasets for biomedical research.</li>
+      <li><a href="https://www.sciencedirect.com/journal/bioinformatics" target="_blank">Bioinformatics Journal</a> - A
+        leading journal in bioinformatics and computational biology, offering research articles and insights on
+        bio-computational methods.</li>
+      <li><a href="https://www.embnet.org/" target="_blank">EMBnet</a> - A network offering bioinformatics tools and
+        services for the global community of life sciences researchers.</li>
+    </ul>
+
+    <!-- Bio-AI Integration and Drug Discovery Resources -->
+    <h2>Bio-AI Integration and Drug Discovery Resources</h2>
+    <ul id="bio-ai-links">
+      <li><a href="https://www.deepmind.com/research" target="_blank">DeepMind's AI for Drug Discovery</a> - Exploring
+        how AI is revolutionizing drug discovery, including advancements in protein folding with AlphaFold.</li>
+      <li><a href="https://www.biorxiv.org/" target="_blank">bioRxiv</a> - Preprint server for the latest research in
+        biology, genomics, and bioinformatics.</li>
+      <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7320571/" target="_blank">AI in Drug Discovery: A
+          Survey</a> - Article discussing the impact of AI on drug discovery processes, including machine learning and
+        deep learning methods.</li>
+    </ul>
+
+    <!-- Footer Section -->
+    <footer>
+      <p>&copy; 2024 AGENBIO App Development | All rights reserved</p>
+    </footer>
+  </div>
+
+</body>
+
+</html>

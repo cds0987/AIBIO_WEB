@@ -1,0 +1,241 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and background image */
+body {
+    font-family: Arial, sans-serif;
+    background: url('/static/Images/documentsearch.jpg') no-repeat center center / cover;
+    background-attachment: fixed;
+    color: #fff;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Container for content */
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+/* Heading style */
+h1 {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* Table layout for form and results */
+.content-table {
+    width: 80%;
+    max-width: 1000px;
+    margin-top: 30px;
+    display: table;
+    border-spacing: 20px;
+    text-align: left;
+}
+
+.form-cell,
+.results-cell {
+    vertical-align: top;
+}
+
+/* Chatbox form styling */
+.chatbox {
+    background: rgba(255, 255, 255, 0.7);
+    /* Transparent background */
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    /* Adds blur effect */
+}
+
+/* User input area */
+.user-input label {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.user-input textarea {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Semi-transparent background for textarea */
+    color: #333;
+    resize: none;
+}
+
+.search-button {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+/* Results section */
+.results-section {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Semi-transparent background for results */
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    /* Adds blur effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+    /* Allows scrolling within the results section */
+    max-height: 60vh;
+    /* Limits the height of the results section */
+}
+
+/* Individual result entry */
+.result-entry {
+    margin-bottom: 20px;
+}
+
+.result-entry h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #007BFF;
+    /* Set a distinct color for keywords */
+}
+
+.result-entry ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.result-entry li {
+    margin-bottom: 15px;
+    color: #333;
+    /* Use dark text color for better readability */
+}
+
+.result-entry li p {
+    margin-bottom: 5px;
+    line-height: 1.5;
+}
+
+.result-entry li .title {
+    font-weight: bold;
+    color: #2C3E50;
+    /* Use a darker shade for titles */
+}
+
+.result-entry li .summary {
+    color: #34495E;
+    /* Slightly lighter for summaries but still readable */
+}
+
+.result-entry li a {
+    color: #E74C3C;
+    /* Set links to a strong red for contrast */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.result-entry li a:hover {
+    color: #C0392B;
+    /* Darken the link color on hover */
+}
+
+/* Navigation buttons section */
+.navigation-buttons {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.nav-button {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.nav-button:hover {
+    background-color: #0056b3;
+}
+
+.feedback {
+    background-color: #28a745;
+}
+
+.feedback:hover {
+    background-color: #218838;
+}
+
+/* Styling for the back button */
+.navigation-buttons .back-button {
+    display: inline-block;
+    /* Makes the link look like a button */
+    padding: 12px 24px;
+    /* Add padding for a comfortable button size */
+    background-color: #007BFF;
+    /* Primary blue color */
+    color: #fff;
+    /* White text for contrast */
+    font-size: 16px;
+    /* Readable font size */
+    font-weight: bold;
+    /* Makes the text stand out */
+    text-decoration: none;
+    /* Removes underline */
+    border-radius: 8px;
+    /* Rounded corners */
+    transition: all 0.3s ease;
+    /* Smooth hover effect */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Add a subtle shadow */
+}
+
+/* Hover effect for the button */
+.navigation-buttons .back-button:hover {
+    background-color: #0056b3;
+    /* Darker blue for hover */
+    color: #e0e0e0;
+    /* Slightly lighter text on hover */
+    transform: translateY(-3px);
+    /* Moves the button up slightly */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    /* Enhances the shadow */
+}
+
+/* Active state for the button */
+.navigation-buttons .back-button:active {
+    transform: translateY(1px);
+    /* Moves the button down on click */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Restores the shadow */
+    background-color: #004085;
+    /* Even darker blue for active */
+}

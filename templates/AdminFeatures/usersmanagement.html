@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    <!-- Link the external CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='usersmanagement.css') }}">
+</head>
+
+<body>
+    <div class="user-management">
+        <header class="header">
+            <h1>User Management</h1>
+        </header>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Search users..." onkeyup="filterTable()">
+        </div>
+
+        <section class="navigation-buttons">
+            <a href="/mainpage/admin" class="nav-button">Back to Main Page</a>
+        </section>
+
+        <!-- Notification Message -->
+        {% if message %}
+        <div class="notification" id="notification">
+            <p>{{ message }}</p>
+        </div>
+        {% endif %}
+
+        <main class="content">
+            <!-- Scrollable User Table -->
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Level</th>
+                            <th>Password</th>
+                            <th>Payment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in users %}
+                        <tr>
+                            <td>{{ user['ID'] }}</td>
+                            <td>{{ user['FullName'] }}</td>
+                            <td>{{ user['Email'] }}</td>
+                            <td>{{ user['Level'] }}</td>
+                            <td>{{ user['Password'] }}</td>
+                            <td>{{ user['Payment'] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Update Button -->
+            <div class="action-buttons">
+                <a href="/mainpage/updateuser" class="update-button">
+                    <button type="button" id="update-user">Update User</button>
+                </a>
+
+                <a href="/adfeatures/analyzedata" class="analyze-button">
+                    <button type="button" id="analyze-data">Analyze Data</button>
+                </a>
+            </div>
+
+            <!-- Hidden Update Form -->
+            <form id="update-form" class="hidden" action="/adfeatures/update_user" method="POST">
+                <h2>Update User Level</h2>
+                <label for="user-id">User ID:</label>
+                <input type="text" id="user-id" name="user_id" required>
+
+                <label for="new-level">New Level:</label>
+                <input type="text" id="new-level" name="new_level" required>
+
+                <button type="submit">Update</button>
+            </form>
+        </main>
+    </div>
+
+    <script>
+        // Function to filter the table based on the search input
+        function filterTable() {
+            const searchValue = document.getElementById("search").value.toLowerCase();
+            const rows = document.querySelectorAll("table tbody tr");
+
+            rows.forEach(row => {
+                const cells = row.getElementsByTagName("td");
+                let matchFound = false;
+
+                // Check each cell in the row for a match
+                for (let i = 0; i < cells.length; i++) {
+                    if (cells[i].textContent.toLowerCase().includes(searchValue)) {
+                        matchFound = true;
+                        break; // No need to check further cells if one matches
+                    }
+                }
+
+                // Display or hide the row based on the match
+                if (matchFound) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        }
+
+        // Toggle the visibility of the update form
+        document.getElementById('toggle-update-form').addEventListener('click', function () {
+            const updateForm = document.getElementById('update-form');
+            const button = document.getElementById('toggle-update-form');
+
+            // Check if the form is currently hidden or visible
+            if (updateForm.classList.contains('hidden')) {
+                updateForm.classList.remove('hidden');
+                updateForm.classList.add('visible');
+                button.textContent = 'Hide Update Form'; // Change button text
+            } else {
+                updateForm.classList.remove('visible');
+                updateForm.classList.add('hidden');
+                button.textContent = 'Update User Level'; // Revert button text
+            }
+        });
+
+        // Hide the notification after 3 seconds if it's visible
+        window.onload = function () {
+            const notification = document.getElementById('notification');
+            if (notification) {
+                setTimeout(function () {
+                    notification.style.display = 'none';
+                }, 3000);  // 3000 milliseconds = 3 seconds
+            }
+        };
+    </script>
+</body>
+
+</html>
