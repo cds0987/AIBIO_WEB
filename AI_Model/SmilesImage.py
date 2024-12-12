@@ -9,10 +9,6 @@ with warnings.catch_warnings():
     warnings.filterwarnings("ignore", category=UserWarning)
 import matplotlib.pyplot as plt
 # Set cache directories programmatically
-#Backend/Store/Hugging Face cache
-os.environ["TRANSFORMERS_CACHE"] = "AI_model_cache/Image2Molecule"
-os.environ["HF_DATASETS_CACHE"] = "AI_model_cache/Image2Molecule"
-os.environ["HF_METRICS_CACHE"] = "AI_model_cache/Image2Molecule"
 def load_mobilenet(pretrained=True, cache_dir='AI_model_cache/Image2Molecule'):
     if cache_dir:
         os.environ['TORCH_HOME'] = cache_dir
@@ -44,9 +40,9 @@ class CNNLSTMModelMobileNet(nn.Module):
     
 class Smiles2Image():
     def __init__(self):
-        self.tokenizer=AutoTokenizer.from_pretrained("ibm/MoLFormer-XL-both-10pct", trust_remote_code=True,model_max_length=49, cache_dir="AI_model_cache/Image2Molecule")
+        self.tokenizer=AutoTokenizer.from_pretrained("ibm/MoLFormer-XL-both-10pct", trust_remote_code=True,model_max_length=49)
         self.model=CNNLSTMModelMobileNet(embedding_dim=300, hidden_dim=512, vocab_size=self.tokenizer.vocab_size+1)
-        self.model.load_state_dict(torch.load('AI_model_cache/Image2Molecule/Model (best).pt',weights_only=False))
+        self.model.load_state_dict(torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/Image2Molecule/Model (best).pt',weights_only=False))
         self.model.eval()
         self.transform = transforms.Compose([
         transforms.Resize((224, 224)),  # Resize to match your model's expected input size

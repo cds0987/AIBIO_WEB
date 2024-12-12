@@ -7,12 +7,6 @@ from torch_geometric.nn import DeepGCNLayer, GENConv,GCN2Conv,SAGEConv,GraphConv
 device=torch.device('cpu')
 import os
 
-# Set cache directories programmatically
-#Backend/Store/Hugging Face cache
-os.environ["TRANSFORMERS_CACHE"] = "AI_model_cache/HuggingFace"
-os.environ["HF_DATASETS_CACHE"] = "AI_model_cache/HuggingFace"
-os.environ["HF_METRICS_CACHE"] = "AI_model_cache/HuggingFace"
-
 class GATV2_Transformer(nn.Module):
     def __init__(self, in_channels, hidden_channels=64, heads=48, num_layers=1, dropout=0.7,num_layers_transformers=1,out_channels=2):
         super(GATV2_Transformer, self).__init__()
@@ -73,21 +67,21 @@ class Graph_models1(nn.Module):
         for param in self.base_model.parameters():
             param.requires_grad = False
         #Graph
-        self.bbbp_graph=torch.load('AI_model_cache/Graphs/bbbp.pt',map_location=torch.device('cpu'),weights_only=False)
-        self.bace_graph=torch.load('AI_model_cache/Graphs/bace.pt',map_location=torch.device('cpu'),weights_only=False)
-        self.ctox_graph=torch.load('AI_model_cache/Graphs/ctox.pt',map_location=torch.device('cpu'),weights_only=False)
-        self.fda_graph=torch.load('AI_model_cache/Graphs/fda.pt',map_location=torch.device('cpu'),weights_only=False)
-        self.hiv_graph=torch.load('AI_model_cache/Graphs/hiv.pt',map_location=torch.device('cpu'),weights_only=False)
-        self.esol_graph=torch.load('AI_model_cache/Graphs/esol.pt',map_location=torch.device('cpu'),weights_only=False)
-        self.lipophilicity_graph=torch.load('AI_model_cache/Graphs/lipophilicity.pt',map_location=torch.device('cpu'),weights_only=False)
-        self.freeSolv_graph=torch.load('AI_model_cache/Graphs/freeSolv.pt',map_location=torch.device('cpu'),weights_only=False)
-        self.qm7_graph=torch.load('AI_model_cache/Graphs/qm7.pt',map_location=torch.device('cpu'),weights_only=False)
-        self.E1CC2_graph=torch.load('AI_model_cache/Graphs/E1-CC2.pt',map_location=torch.device('cpu'),weights_only=False)
-        self.E2CC2_graph=torch.load('AI_model_cache/Graphs/E2-CC2.pt',map_location=torch.device('cpu'),weights_only=False)
-        self.E1PBE0_graph=torch.load('AI_model_cache/Graphs/E1-PBE0.pt',map_location=torch.device('cpu'),weights_only=False)
-        self.E2PBE0_graph=torch.load('AI_model_cache/Graphs/E2-PBE0.pt',map_location=torch.device('cpu'),weights_only=False)
-        self.E1CAM_graph=torch.load('AI_model_cache/Graphs/E1-CAM.pt',map_location=torch.device('cpu'),weights_only=False)
-        self.E2CAM_graph=torch.load('AI_model_cache/Graphs/E2-CAM.pt',map_location=torch.device('cpu'),weights_only=False)
+        self.bbbp_graph=torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/Graphs/bbbp.pt',map_location=torch.device('cpu'),weights_only=False)
+        self.bace_graph=torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/Graphs/bace.pt',map_location=torch.device('cpu'),weights_only=False)
+        self.ctox_graph=torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/Graphs/ctox.pt',map_location=torch.device('cpu'),weights_only=False)
+        self.fda_graph=torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/Graphs/fda.pt',map_location=torch.device('cpu'),weights_only=False)
+        self.hiv_graph=torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/Graphs/hiv.pt',map_location=torch.device('cpu'),weights_only=False)
+        self.esol_graph=torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/Graphs/esol.pt',map_location=torch.device('cpu'),weights_only=False)
+        self.lipophilicity_graph=torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/Graphs/lipophilicity.pt',map_location=torch.device('cpu'),weights_only=False)
+        self.freeSolv_graph=torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/Graphs/freeSolv.pt',map_location=torch.device('cpu'),weights_only=False)
+        self.qm7_graph=torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/Graphs/qm7.pt',map_location=torch.device('cpu'),weights_only=False)
+        self.E1CC2_graph=torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/Graphs/E1-CC2.pt',map_location=torch.device('cpu'),weights_only=False)
+        self.E2CC2_graph=torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/Graphs/E2-CC2.pt',map_location=torch.device('cpu'),weights_only=False)
+        self.E1PBE0_graph=torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/Graphs/E1-PBE0.pt',map_location=torch.device('cpu'),weights_only=False)
+        self.E2PBE0_graph=torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/Graphs/E2-PBE0.pt',map_location=torch.device('cpu'),weights_only=False)
+        self.E1CAM_graph=torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/Graphs/E1-CAM.pt',map_location=torch.device('cpu'),weights_only=False)
+        self.E2CAM_graph=torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/Graphs/E2-CAM.pt',map_location=torch.device('cpu'),weights_only=False)
         #initialize model
         self.bbbp_model=GATV2_Transformer(in_channels=self.bbbp_graph.x.size(1), hidden_channels=64, heads=8, num_layers=1, dropout=0.7,num_layers_transformers=1,out_channels=2)
         self.bace_model=GATV2_Transformer(in_channels=self.bace_graph.x.size(1), hidden_channels=64, heads=8, num_layers=1, dropout=0.7,num_layers_transformers=1,out_channels=2)
@@ -106,21 +100,21 @@ class Graph_models1(nn.Module):
         self.E2CAM_model=GATV2_Transformer(in_channels=self.E2CAM_graph.x.size(1), hidden_channels=64, heads=8, num_layers=1, dropout=0.7,num_layers_transformers=1,out_channels=1)
         #Load weight
         
-        self.bbbp_model.load_state_dict(torch.load('AI_model_cache/Graph-Model-Weight/bbbp.pt',map_location=torch.device('cpu'),weights_only=True))
-        self.bace_model.load_state_dict(torch.load('AI_model_cache/Graph-Model-Weight/bace.pt',map_location=torch.device('cpu'),weights_only=True))
-        self.ctox_model.load_state_dict(torch.load('AI_model_cache/Graph-Model-Weight/ctox.pt',map_location=torch.device('cpu'),weights_only=True))
-        self.fda_model.load_state_dict(torch.load('AI_model_cache/Graph-Model-Weight/fda.pt',map_location=torch.device('cpu'),weights_only=True))
-        self.hiv_model.load_state_dict(torch.load('AI_model_cache/Graph-Model-Weight/hiv.pt',map_location=torch.device('cpu'),weights_only=True))
-        self.esol_model.load_state_dict(torch.load('AI_model_cache/Graph-Model-Weight/esol.pt',map_location=torch.device('cpu'),weights_only=True))
-        self.freeSolv_model.load_state_dict(torch.load('AI_model_cache/Graph-Model-Weight/freeSolv.pt',map_location=torch.device('cpu'),weights_only=True))
-        self.qm7_model.load_state_dict(torch.load('AI_model_cache/Graph-Model-Weight/qm7.pt',map_location=torch.device('cpu'),weights_only=True))
-        self.lipophilicity_model.load_state_dict(torch.load('AI_model_cache/Graph-Model-Weight/lipophilicity.pt',map_location=torch.device('cpu'),weights_only=True))
-        self.E1CC2_model.load_state_dict(torch.load('AI_model_cache/Graph-Model-Weight/E1-CC2.pt',map_location=torch.device('cpu'),weights_only=True))
-        self.E2CC2_model.load_state_dict(torch.load('AI_model_cache/Graph-Model-Weight/E2-CC2.pt',map_location=torch.device('cpu'),weights_only=True))
-        self.E1PBE0_model.load_state_dict(torch.load('AI_model_cache/Graph-Model-Weight/E1-PBE0.pt',map_location=torch.device('cpu'),weights_only=True))
-        self.E2PBE0_model.load_state_dict(torch.load('AI_model_cache/Graph-Model-Weight/E2-PBE0.pt',map_location=torch.device('cpu'),weights_only=True))
-        self.E1CAM_model.load_state_dict(torch.load('AI_model_cache/Graph-Model-Weight/E1-CAM.pt',map_location=torch.device('cpu'),weights_only=True))
-        self.E2CAM_model.load_state_dict(torch.load('AI_model_cache/Graph-Model-Weight/E2-CAM.pt',map_location=torch.device('cpu'),weights_only=True))
+        self.bbbp_model.load_state_dict(torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/Graph-Model-Weight/bbbp.pt',map_location=torch.device('cpu'),weights_only=True))
+        self.bace_model.load_state_dict(torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/Graph-Model-Weight/bace.pt',map_location=torch.device('cpu'),weights_only=True))
+        self.ctox_model.load_state_dict(torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/Graph-Model-Weight/ctox.pt',map_location=torch.device('cpu'),weights_only=True))
+        self.fda_model.load_state_dict(torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/Graph-Model-Weight/fda.pt',map_location=torch.device('cpu'),weights_only=True))
+        self.hiv_model.load_state_dict(torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/Graph-Model-Weight/hiv.pt',map_location=torch.device('cpu'),weights_only=True))
+        self.esol_model.load_state_dict(torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/Graph-Model-Weight/esol.pt',map_location=torch.device('cpu'),weights_only=True))
+        self.freeSolv_model.load_state_dict(torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/Graph-Model-Weight/freeSolv.pt',map_location=torch.device('cpu'),weights_only=True))
+        self.qm7_model.load_state_dict(torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/Graph-Model-Weight/qm7.pt',map_location=torch.device('cpu'),weights_only=True))
+        self.lipophilicity_model.load_state_dict(torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/Graph-Model-Weight/lipophilicity.pt',map_location=torch.device('cpu'),weights_only=True))
+        self.E1CC2_model.load_state_dict(torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/Graph-Model-Weight/E1-CC2.pt',map_location=torch.device('cpu'),weights_only=True))
+        self.E2CC2_model.load_state_dict(torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/Graph-Model-Weight/E2-CC2.pt',map_location=torch.device('cpu'),weights_only=True))
+        self.E1PBE0_model.load_state_dict(torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/Graph-Model-Weight/E1-PBE0.pt',map_location=torch.device('cpu'),weights_only=True))
+        self.E2PBE0_model.load_state_dict(torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/Graph-Model-Weight/E2-PBE0.pt',map_location=torch.device('cpu'),weights_only=True))
+        self.E1CAM_model.load_state_dict(torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/Graph-Model-Weight/E1-CAM.pt',map_location=torch.device('cpu'),weights_only=True))
+        self.E2CAM_model.load_state_dict(torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/Graph-Model-Weight/E2-CAM.pt',map_location=torch.device('cpu'),weights_only=True))
 
         self.to(device)
     def proccess_smile(self,smiles):

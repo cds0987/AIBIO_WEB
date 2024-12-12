@@ -8,12 +8,6 @@ device = 'cpu'
 import warnings
 import os
 
-# Set cache directories programmatically
-#Backend/Store/Hugging Face cache
-os.environ["TRANSFORMERS_CACHE"] = "AI_model_cache"
-os.environ["HF_DATASETS_CACHE"] = "AI_model_cache"
-os.environ["HF_METRICS_CACHE"] = "AI_model_cache"
-# Set logging to error only
 with warnings.catch_warnings():
     warnings.filterwarnings("ignore", category=UserWarning)
 class feedForward(nn.Module):
@@ -33,8 +27,8 @@ class feedForward(nn.Module):
 class CHMLM(nn.Module):
     def __init__(self):
         super(CHMLM, self).__init__()
-        self.tokenizer = AutoTokenizer.from_pretrained("DeepChem/ChemBERTa-77M-MLM",cache_dir="AI_model_cache")
-        self.base_model = AutoModelForMaskedLM.from_pretrained("DeepChem/ChemBERTa-77M-MLM",cache_dir="AI_model_cache")
+        self.tokenizer = AutoTokenizer.from_pretrained("DeepChem/ChemBERTa-77M-MLM")
+        self.base_model = AutoModelForMaskedLM.from_pretrained("DeepChem/ChemBERTa-77M-MLM")
         self.base_model.lm_head=nn.Identity()
         for param in self.base_model.parameters():
             param.requires_grad = False
@@ -49,14 +43,14 @@ class CHMLM(nn.Module):
         self.qm7=feedForward(384,256,1)
 
         #load weight
-        self.bbbp.load_state_dict(torch.load('AI_model_cache/77MLM/bbbp.pt',weights_only=False))
-        self.bace.load_state_dict(torch.load('AI_model_cache/77MLM/bace.pt',weights_only=False))
-        self.ctox.load_state_dict(torch.load('AI_model_cache/77MLM/ctox.pt',weights_only=False))
-        self.fda.load_state_dict(torch.load('AI_model_cache/77MLM/fda.pt',weights_only=False))
-        self.esol.load_state_dict(torch.load('AI_model_cache/77MLM/esol.pt',weights_only=False))
-        self.freesolv.load_state_dict(torch.load('AI_model_cache/77MLM/freesolv.pt',weights_only=False))
-        self.lipophilicity.load_state_dict(torch.load('AI_model_cache/77MLM/lipophilicity.pt',weights_only=False))
-        self.qm7.load_state_dict(torch.load('AI_model_cache/77MLM/qm7.pt',weights_only=False))
+        self.bbbp.load_state_dict(torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/77MLM/bbbp.pt',weights_only=False))
+        self.bace.load_state_dict(torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/77MLM/bace.pt',weights_only=False))
+        self.ctox.load_state_dict(torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/77MLM/ctox.pt',weights_only=False))
+        self.fda.load_state_dict(torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/77MLM/fda.pt',weights_only=False))
+        self.esol.load_state_dict(torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/77MLM/esol.pt',weights_only=False))
+        self.freesolv.load_state_dict(torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/77MLM/freesolv.pt',weights_only=False))
+        self.lipophilicity.load_state_dict(torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/77MLM/lipophilicity.pt',weights_only=False))
+        self.qm7.load_state_dict(torch.load('/content/drive/MyDrive/AI_store/Chemical_App/Source Code/AI_Model/AI_model_cache/77MLM/qm7.pt',weights_only=False))
 
         self.to(device)
     def proccess_smile(self,smiles):

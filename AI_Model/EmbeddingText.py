@@ -2,7 +2,6 @@ from transformers import AutoTokenizer, AutoModel
 import torch
 import torch.nn.functional as F
 import os
-os.environ["TRANSFORMERS_CACHE"] = "AI_model_cache/HuggingFace"
 
 class MiniSentenceTransformer:
     def __init__(self, model_name='sentence-transformers/all-MiniLM-L12-v2'):
@@ -12,8 +11,8 @@ class MiniSentenceTransformer:
         Args:
             model_name (str): The name of the pre-trained model from HuggingFace Hub.
         """
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name, cache_dir="AI_model_cache/HuggingFace")
-        self.model = AutoModel.from_pretrained(model_name, cache_dir="AI_model_cache/HuggingFace")
+        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
+        self.model = AutoModel.from_pretrained(model_name)
 
     @staticmethod
     def mean_pooling(model_output, attention_mask):
